@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #FAF7F2;
+    color: #493633;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9AAA8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A89589;
+}
+
+/* Subtle Shimmer for Skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(244, 238, 231, 0.6) 0%,
+    rgba(243, 217, 216, 0.4) 50%,
+    rgba(244, 238, 231, 0.6) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite ease-in-out;
+}
+
+/* Luxury button transition utility */
+.btn-luxury {
+  @apply tracking-luxury uppercase text-xs font-medium py-3.5 px-8 transition-all duration-300 ease-out inline-flex items-center justify-center;
+}
+
+.btn-primary {
+  @apply btn-luxury bg-cocoa text-ivory hover:bg-cocoa-light shadow-sm hover:shadow-soft active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply btn-luxury bg-blush text-cocoa hover:bg-blush-dark active:scale-[0.98];
+}
+
+.btn-outline {
+  @apply btn-luxury border border-cocoa/40 text-cocoa hover:border-cocoa hover:bg-cocoa hover:text-ivory active:scale-[0.98];
+}
